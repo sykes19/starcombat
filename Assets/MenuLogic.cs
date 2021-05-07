@@ -6,15 +6,15 @@ using UnityEngine.SceneManagement;
 public class MenuLogic : MonoBehaviour
 {
 
-    void PartyTime()
+    public void PlayGame()
     {
-
+        SceneManager.LoadScene("Game1");
     }
 
     // Start is called before the first frame update
     void OnEnable()
     {
-        SceneManager.LoadScene("Game1");
+
     }
 
     // Update is called once per frame
