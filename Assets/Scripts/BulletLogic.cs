@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class BulletLogic : MonoBehaviour
 {
+
     public GameObject hostShip;
     public float Lifetime = 2;
     public ShipLogic hostLogic;
-
-
 
     // Start is called before the first frame update
     void Start()
