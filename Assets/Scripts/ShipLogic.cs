@@ -12,11 +12,13 @@ public class ShipLogic : MonoBehaviour
     public Material yellowPaint;
     public GameObject paintedParts;
 
-    public int Player = 0;
-    public float Acceleration = 3.0f;
-    public float TurnRate = 3.0f;
-    public float MaxSpeed = 10.0f;
-    public float BulletSpeed = 12.0f;
+    public int Player;
+    public float Acceleration;
+    public float TurnRate;
+    public float MaxSpeed;
+    public float BulletSpeed;
+    public int WeaponCooldown;
+    int CurrentWeaponCooldown;
 
     // Start is called before the first frame update
     void Start()
@@ -41,15 +43,24 @@ public class ShipLogic : MonoBehaviour
     }
 
     // Update is called once per frame
+    void Update()
+    {
+
+    }
+
+    // FixedUpdate is called regularly at a set interval
     void FixedUpdate()
     {
+        // Subtract 1 from weapon cooldown counter, down to 0.
+        CurrentWeaponCooldown = CurrentWeaponCooldown > 0 ? CurrentWeaponCooldown - 1 : 0;
+
         if (Player == 1)
         {
             if (Input.GetKey(KeyCode.W)) { rigidbody.AddForce(transform.forward * Acceleration); }
             if (Input.GetKey(KeyCode.S)) { rigidbody.AddForce(transform.forward * -Acceleration); }
             if (Input.GetKey(KeyCode.A)) { transform.Rotate(new Vector3(0, -TurnRate, 0)); }
             if (Input.GetKey(KeyCode.D)) { transform.Rotate(new Vector3(0, TurnRate, 0)); }
-            if (Input.GetKeyDown(KeyCode.Space)) { Shoot(); }
+            if (Input.GetKey(KeyCode.Space) && (CurrentWeaponCooldown == 0)) { Shoot(); }
         }
 
         // Clamp max speed
@@ -58,6 +69,7 @@ public class ShipLogic : MonoBehaviour
 
     void Shoot()
     {
+        CurrentWeaponCooldown = WeaponCooldown;
         GameObject Bullet = Instantiate(BulletObject, transform.position, transform.rotation);
         Bullet.GetComponent<Rigidbody>().velocity = Bullet.transform.forward * BulletSpeed;
         Bullet.GetComponent<BulletLogic>().Player = Player; // Set bullet ownership

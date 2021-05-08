@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class BulletLogic : MonoBehaviour
 {
-    public int Player = 0;
-    public float Lifetime = 2;
+    public int Player;
+    public float Lifetime;
 
     // Start is called before the first frame update
     void Start()
