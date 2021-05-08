@@ -51,13 +51,13 @@ MonoBehaviour:
   bluePaint: {fileID: 2100000, guid: 00ba55eb63438c941a579e2123788e43, type: 2}
   yellowPaint: {fileID: 2100000, guid: c704a19d3678d48429554be7386f2070, type: 2}
   paintedParts: {fileID: 5049472949423027280}
+  myScore: 0
   Player: 0
-  Acceleration: 5
+  Acceleration: 8
   TurnRate: 5
-  MaxSpeed: 13
+  MaxSpeed: 10
   BulletSpeed: 12
   WeaponCooldown: 30
-  CurrentWeaponCooldown: 0
 --- !u!54 &7762621180697896362
 Rigidbody:
   m_ObjectHideFlags: 0

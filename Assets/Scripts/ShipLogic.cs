@@ -12,7 +12,7 @@ public class ShipLogic : MonoBehaviour
     public Material yellowPaint;
     public GameObject paintedParts;
 
-
+    public int myScore;
     public int Player;
     public float Acceleration;
     public float TurnRate;
@@ -58,7 +58,8 @@ public class ShipLogic : MonoBehaviour
         if (Player == 1)
         {
             if (Input.GetKey(KeyCode.W)) { rigidbody.AddForce(transform.forward * Acceleration); }
-            if (Input.GetKey(KeyCode.S)) { rigidbody.AddForce(transform.forward * -Acceleration); }
+            // The original game didn't let you go backwards, and I don't like how it feels. Trying it out.
+            //if (Input.GetKey(KeyCode.S)) { rigidbody.AddForce(transform.forward * -Acceleration); }
             if (Input.GetKey(KeyCode.A)) { transform.Rotate(new Vector3(0, -TurnRate, 0)); }
             if (Input.GetKey(KeyCode.D)) { transform.Rotate(new Vector3(0, TurnRate, 0)); }
             if (Input.GetKey(KeyCode.Space) && (CurrentWeaponCooldown == 0)) { Shoot(); }

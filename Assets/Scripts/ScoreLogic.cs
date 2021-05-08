@@ -17,7 +17,8 @@ public class ScoreLogic : MonoBehaviour
     void Start()
     {
         gLogic = gameController.GetComponent<GameLogic>();
-        UpdateScore();
+        text_P1score.text = ("P1 - " + P1CurrentScore);
+        text_P2score.text = ("P2 - " + P2CurrentScore);
     }
 
     void UpdateScore()
@@ -35,5 +36,6 @@ public class ScoreLogic : MonoBehaviour
     {
         UpdateScore();
     }
+
 
 }
