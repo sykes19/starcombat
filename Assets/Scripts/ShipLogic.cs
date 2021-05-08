@@ -8,6 +8,7 @@ public class ShipLogic : MonoBehaviour
     new Rigidbody rigidbody;
 
     public int Player = 0;
+    public int myScore = 0;
     public float Acceleration = 3.0f;
     public float TurnRate = 3.0f;
     public float MaxSpeed = 10.0f;
@@ -40,7 +41,7 @@ public class ShipLogic : MonoBehaviour
     {
         GameObject Bullet = Instantiate(BulletObject, transform.position, transform.rotation);
         Bullet.GetComponent<Rigidbody>().velocity = Bullet.transform.forward * BulletSpeed;
-        Bullet.GetComponent<BulletLogic>().Player = Player; // Set bullet ownership
+        Bullet.GetComponent<BulletLogic>().hostShip = gameObject;
     }
 
 }
