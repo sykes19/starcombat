@@ -6,6 +6,11 @@ public class ShipLogic : MonoBehaviour
 {
     public GameObject BulletObject;
     new Rigidbody rigidbody;
+    
+    // Define what paint can be used, and what parts get painted
+    public Material bluePaint;
+    public Material yellowPaint;
+    public GameObject paintedParts;
 
     public int Player = 0;
     public float Acceleration = 3.0f;
@@ -16,12 +21,27 @@ public class ShipLogic : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         rigidbody = GetComponent<Rigidbody>();
         rigidbody.detectCollisions = false;
+
+        // Detect paintable parts of the ship.
+        Renderer[] wingColor = paintedParts.GetComponentsInChildren<Renderer>();
+        if (Player == 1)
+        {   // Paint each paintable piece, one by one.
+            foreach (Renderer rend in wingColor) { rend.material = bluePaint; }
+        }
+        else if (Player == 2)
+        {
+            foreach (Renderer rend in wingColor) { rend.material = yellowPaint; }
+        }
+
+
+
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (Player == 1)
         {
