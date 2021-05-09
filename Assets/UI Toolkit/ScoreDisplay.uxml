@@ -1,0 +1,8 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement name="ScoreP1" style="height: 36px; width: 84px; max-width: 20%; max-height: 20%; font-size: 22px; -unity-font-style: bold; align-items: center; justify-content: center; left: 0; top: 0; right: auto; bottom: auto; position: absolute; color: rgb(255, 255, 255);">
+        <ui:Label display-tooltip-when-elided="true" name="TextP1" text="Test" style="align-items: center; justify-content: center; position: absolute; color: rgba(255, 255, 255, 255);" />
+    </ui:VisualElement>
+    <ui:VisualElement name="ScoreP2" style="max-width: 20%; max-height: 20%; font-size: 22px; -unity-font-style: bold; align-items: center; justify-content: center; top: 0; position: absolute; left: auto; right: 0; bottom: auto; width: 84px; height: 36px; color: rgba(255, 255, 255, 255);">
+        <ui:Label display-tooltip-when-elided="true" name="TextP2" text="Test" style="align-items: center; justify-content: center; position: absolute; color: rgba(255, 255, 255, 255);" />
+    </ui:VisualElement>
+</ui:UXML>

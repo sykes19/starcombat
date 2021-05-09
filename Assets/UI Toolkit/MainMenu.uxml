@@ -1,0 +1,7 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement name="MenuContainer" style="top: 5%; bottom: 5%; right: 5%; left: 5%; position: absolute; color: rgb(255, 255, 255); font-size: 39px; align-items: center; justify-content: flex-start;">
+        <ui:Label text="SPACE WASPS" display-tooltip-when-elided="true" name="Title" style="height: 66px; align-items: center; justify-content: center; -unity-text-align: middle-center; flex-direction: column; width: 330px; top: 4px;" />
+        <ui:Label text="WASPS IN SPACE" display-tooltip-when-elided="true" name="Subtitle" style="height: 11px; align-items: center; justify-content: center; -unity-text-align: middle-center; flex-direction: column; width: 82px; top: -6px; font-size: 9px;" />
+        <ui:Button text="Play" display-tooltip-when-elided="true" name="PlayButton" style="top: 44px; height: 27px; width: 74px; font-size: 21px; -unity-font-style: bold; color: rgb(0, 118, 31);" />
+    </ui:VisualElement>
+</ui:UXML>

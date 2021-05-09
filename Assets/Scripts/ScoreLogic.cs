@@ -2,33 +2,43 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UIElements;
 
 public class ScoreLogic : MonoBehaviour
 {
-
-    public TextMeshProUGUI text_P1score;
-    public TextMeshProUGUI text_P2score;
+    private Label P1;
+    private Label P2;
+    public UIDocument UIRef;
     public int P1CurrentScore = 0;
     public int P2CurrentScore = 0;
-    public GameObject gameController;
-    GameLogic gLogic;
+    public GameLogic gLogic; // This is given to me on instantiation at the moment
 
-    // Start is called before the first frame update
+    private void Awake()
+    {
+   
+    }
+
     void Start()
     {
-        gLogic = gameController.GetComponent<GameLogic>();
-        text_P1score.text = ("P1 - " + P1CurrentScore);
-        text_P2score.text = ("P2 - " + P2CurrentScore);
+        // Bind references from UI labels
+        var rootVE = UIRef.rootVisualElement;
+        P1 = rootVE.Q<Label>("TextP1");
+        P2 = rootVE.Q<Label>("TextP2");
+
+        // Initialize labels
+        P1.text = ("P1 - " + P1CurrentScore);
+        P2.text = ("P2 - " + P2CurrentScore);
     }
 
     void UpdateScore()
     {
+        // Receive new score values from ships
         P1CurrentScore = gLogic.AllShips[0].myScore;
         P2CurrentScore = gLogic.AllShips[1].myScore;
-        //string debug = gLogic.AllShips.ToString();
-        //print(debug);
-        text_P1score.text = ("P1 - " + P1CurrentScore);
-        text_P2score.text = ("P2 - " + P2CurrentScore);
+
+        // Push values to the UI labels
+        P1.text = ("P1 - " + P1CurrentScore);
+        P2.text = ("P2 - " + P2CurrentScore);
     }
 
     // Update is called once per frame

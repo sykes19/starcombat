@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class GameLogic : MonoBehaviour
 {
     public GameObject ShipObject;
     public GameObject BulletObject;
+    public GameObject ScoreObject;
+    public GameObject UIObject;
     public List<ShipLogic> AllShips = new List<ShipLogic>();
     public int scoreToWin;
     public int MaxPlayers;
@@ -14,7 +17,7 @@ public class GameLogic : MonoBehaviour
     //GameObject[] PlayerShips;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         //Players = 2;
         AllShips.Clear();
@@ -32,9 +35,21 @@ public class GameLogic : MonoBehaviour
  
     }
 
-    // Create new ships
+    // Populate scene with game-specific objects
     void Begin()
     {
+        //Create UI controller object
+        GameObject objUI = Instantiate(UIObject);
+        UIDocument UIDoc = objUI.GetComponent<UIDocument>();
+
+        //Create ScoreController, and bind to logic script
+        GameObject scoreController = Instantiate(ScoreObject);
+        ScoreLogic sLogic = scoreController.GetComponent<ScoreLogic>();
+        //Give ScoreLogic a reference to my own logic script
+        sLogic.gLogic = GetComponent<GameLogic>();
+        sLogic.UIRef = UIDoc;
+
+        //Ship creation
         GameObject PlayerShip = Instantiate(ShipObject, new Vector3(7, 3, 1), Quaternion.Euler(0, -90, -90));
         ShipLogic Logic = PlayerShip.GetComponent<ShipLogic>();
         Logic.Player = (1);
