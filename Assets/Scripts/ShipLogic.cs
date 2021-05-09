@@ -24,7 +24,6 @@ public class ShipLogic : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
         rigidbody = GetComponent<Rigidbody>();
         rigidbody.detectCollisions = false;
 
@@ -38,9 +37,6 @@ public class ShipLogic : MonoBehaviour
         {
             foreach (Renderer rend in wingColor) { rend.material = yellowPaint; }
         }
-
-
-
     }
 
     // Update is called once per frame
