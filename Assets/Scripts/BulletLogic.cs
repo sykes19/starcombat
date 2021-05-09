@@ -15,10 +15,10 @@ public class BulletLogic : MonoBehaviour
         hostLogic = hostShip.GetComponent<ShipLogic>();
     }
 
-    void HitBadguy()
+    public void HitBadguy()
     {
         hostLogic.myScore++;
-        // Destroy badguy
+        Destroy(gameObject);
     }
 
     // Update is called once per frame
@@ -28,9 +28,22 @@ public class BulletLogic : MonoBehaviour
         if (Lifetime < 0) { Destroy(gameObject);}
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other != hostShip.GetComponent<Collider>())
+        {
+            if (other.gameObject.CompareTag("Player"))
+            {
+                other.gameObject.GetComponent<ShipLogic>().DeathCode();
+                HitBadguy();
+            }
+        }
+
+    }
+
     private void OnDestroy()
     {
         // DEBUG LINE TO ADD SCORE FOR NOW
-        HitBadguy();
+        //HitBadguy();
     }
 }

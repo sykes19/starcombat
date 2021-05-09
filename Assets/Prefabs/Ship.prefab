@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7762621180697896362}
   - component: {fileID: 110414645929742701}
   - component: {fileID: 4782324210438270226}
+  - component: {fileID: 2327110741350017168}
   m_Layer: 0
   m_Name: Ship
   m_TagString: Player
@@ -51,12 +52,14 @@ MonoBehaviour:
   bluePaint: {fileID: 2100000, guid: 00ba55eb63438c941a579e2123788e43, type: 2}
   yellowPaint: {fileID: 2100000, guid: c704a19d3678d48429554be7386f2070, type: 2}
   paintedParts: {fileID: 5049472949423027280}
+  beep: {fileID: 2327110741350017168}
   myScore: 0
   Player: 0
   Acceleration: 8
   TurnRate: 5
   MaxSpeed: 10
-  BulletSpeed: 12
+  BulletSpeed: 13
+  RespawnTime: 1
   WeaponCooldown: 30
 --- !u!54 &7762621180697896362
 Rigidbody:
@@ -85,7 +88,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.56
+  m_Radius: 0.6
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &4782324210438270226
 MonoBehaviour:
@@ -100,6 +103,102 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Boundary: {x: 8.8889, y: 5}
+--- !u!82 &2327110741350017168
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 85095127869581337}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: f791702a1746cbc42ab7a4f4feaacd85, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1674874455838506403
 GameObject:
   m_ObjectHideFlags: 0

@@ -18,6 +18,7 @@ public class ScoreLogic : MonoBehaviour
    
     }
 
+
     void Start()
     {
         // Bind references from UI labels
