@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
+using UnityEngine.SceneManagement;
 
 public class GameLogic : MonoBehaviour
 {
@@ -27,7 +28,14 @@ public class GameLogic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (AllShips[0].myScore == 10)
+        {
+            SceneManager.LoadScene("MainMenu");
+        }
+        if (AllShips[1].myScore == 10)
+        {
+            SceneManager.LoadScene("MainMenu");
+        }
     }
 
     void FixedUpdate()

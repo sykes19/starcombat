@@ -7,9 +7,15 @@ using UnityEngine.UIElements;
 public class MenuLogic : MonoBehaviour
 {
     private VisualElement playButton;
+    public GameObject StarSpawnerObject;
     public void PlayGame()
     {
         SceneManager.LoadScene("Game1");
+    }
+
+    private void Start()
+    {
+        Instantiate(StarSpawnerObject);
     }
 
     // Start is called before the first frame update
@@ -20,6 +26,8 @@ public class MenuLogic : MonoBehaviour
         playButton = rootVE.Q<Button>("PlayButton");
 
         playButton.RegisterCallback<ClickEvent>(ev => PlayGame());
+
+
     }
 
     // Update is called once per frame
